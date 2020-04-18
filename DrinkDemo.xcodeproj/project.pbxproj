@@ -13,6 +13,16 @@
 		35979D6424440DFF006B2B50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35979D6224440DFF006B2B50 /* Main.storyboard */; };
 		35979D6624440DFF006B2B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35979D6524440DFF006B2B50 /* Assets.xcassets */; };
 		35979D6924440DFF006B2B50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35979D6724440DFF006B2B50 /* LaunchScreen.storyboard */; };
+		35979D7124440EAA006B2B50 /* DrinkList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35979D7024440EAA006B2B50 /* DrinkList.plist */; };
+		35979D742444371C006B2B50 /* PlistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35979D732444371C006B2B50 /* PlistDTO.swift */; };
+		35979D7624443768006B2B50 /* GoogleSheetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35979D7524443768006B2B50 /* GoogleSheetDTO.swift */; };
+		359DDFBA2447F71B00B0CEB5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359DDFB92447F71B00B0CEB5 /* HomeViewController.swift */; };
+		359DDFBD2447F81900B0CEB5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359DDFBC2447F81800B0CEB5 /* WebKit.framework */; };
+		359DDFBF2449995B00B0CEB5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359DDFBE2449995B00B0CEB5 /* MenuViewController.swift */; };
+		359DDFC324499D8800B0CEB5 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359DDFC224499D8800B0CEB5 /* MenuTableViewCell.swift */; };
+		35C32DEA244AEF770054EB83 /* CommomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C32DE9244AEF770054EB83 /* CommomData.swift */; };
+		35C32DEC244AF0200054EB83 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C32DEB244AF0200054EB83 /* GroupViewController.swift */; };
+		35C32DEE244AF03E0054EB83 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C32DED244AF03E0054EB83 /* GroupTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +34,16 @@
 		35979D6524440DFF006B2B50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35979D6824440DFF006B2B50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35979D6A24440DFF006B2B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35979D7024440EAA006B2B50 /* DrinkList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DrinkList.plist; sourceTree = "<group>"; };
+		35979D732444371C006B2B50 /* PlistDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistDTO.swift; sourceTree = "<group>"; };
+		35979D7524443768006B2B50 /* GoogleSheetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSheetDTO.swift; sourceTree = "<group>"; };
+		359DDFB92447F71B00B0CEB5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		359DDFBC2447F81800B0CEB5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		359DDFBE2449995B00B0CEB5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		359DDFC224499D8800B0CEB5 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		35C32DE9244AEF770054EB83 /* CommomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommomData.swift; sourceTree = "<group>"; };
+		35C32DEB244AF0200054EB83 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		35C32DED244AF03E0054EB83 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				359DDFBD2447F81900B0CEB5 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +63,7 @@
 			children = (
 				35979D5B24440DFF006B2B50 /* DrinkDemo */,
 				35979D5A24440DFF006B2B50 /* Products */,
+				359DDFBB2447F81800B0CEB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +78,10 @@
 		35979D5B24440DFF006B2B50 /* DrinkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				35C32DE8244AEDB50054EB83 /* Commom */,
+				359DDFC124499D7200B0CEB5 /* Cell */,
+				35979D722444346D006B2B50 /* DTO */,
+				359DDFC02449996500B0CEB5 /* ViewController */,
 				35979D5C24440DFF006B2B50 /* AppDelegate.swift */,
 				35979D5E24440DFF006B2B50 /* SceneDelegate.swift */,
 				35979D6024440DFF006B2B50 /* ViewController.swift */,
@@ -63,8 +89,53 @@
 				35979D6524440DFF006B2B50 /* Assets.xcassets */,
 				35979D6724440DFF006B2B50 /* LaunchScreen.storyboard */,
 				35979D6A24440DFF006B2B50 /* Info.plist */,
+				35979D7024440EAA006B2B50 /* DrinkList.plist */,
 			);
 			path = DrinkDemo;
+			sourceTree = "<group>";
+		};
+		35979D722444346D006B2B50 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				35979D732444371C006B2B50 /* PlistDTO.swift */,
+				35979D7524443768006B2B50 /* GoogleSheetDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		359DDFBB2447F81800B0CEB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				359DDFBC2447F81800B0CEB5 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		359DDFC02449996500B0CEB5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				359DDFBE2449995B00B0CEB5 /* MenuViewController.swift */,
+				359DDFB92447F71B00B0CEB5 /* HomeViewController.swift */,
+				35C32DEB244AF0200054EB83 /* GroupViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		359DDFC124499D7200B0CEB5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				359DDFC224499D8800B0CEB5 /* MenuTableViewCell.swift */,
+				35C32DED244AF03E0054EB83 /* GroupTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		35C32DE8244AEDB50054EB83 /* Commom */ = {
+			isa = PBXGroup;
+			children = (
+				35C32DE9244AEF770054EB83 /* CommomData.swift */,
+			);
+			path = Commom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35979D6924440DFF006B2B50 /* LaunchScreen.storyboard in Resources */,
+				35979D7124440EAA006B2B50 /* DrinkList.plist in Resources */,
 				35979D6624440DFF006B2B50 /* Assets.xcassets in Resources */,
 				35979D6424440DFF006B2B50 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +210,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35979D742444371C006B2B50 /* PlistDTO.swift in Sources */,
 				35979D6124440DFF006B2B50 /* ViewController.swift in Sources */,
+				359DDFC324499D8800B0CEB5 /* MenuTableViewCell.swift in Sources */,
 				35979D5D24440DFF006B2B50 /* AppDelegate.swift in Sources */,
+				35C32DEE244AF03E0054EB83 /* GroupTableViewCell.swift in Sources */,
+				35C32DEC244AF0200054EB83 /* GroupViewController.swift in Sources */,
+				359DDFBF2449995B00B0CEB5 /* MenuViewController.swift in Sources */,
+				35979D7624443768006B2B50 /* GoogleSheetDTO.swift in Sources */,
 				35979D5F24440DFF006B2B50 /* SceneDelegate.swift in Sources */,
+				35C32DEA244AEF770054EB83 /* CommomData.swift in Sources */,
+				359DDFBA2447F71B00B0CEB5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
