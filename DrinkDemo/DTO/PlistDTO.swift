@@ -8,7 +8,7 @@
 
 //import Foundation
 
-struct DrinkList:Codable {
+struct Drink:Codable {
     let drinkName:String
     let description:String
     let middlePrice:Int

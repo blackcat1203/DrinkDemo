@@ -19,10 +19,18 @@ class HomeViewController: UIViewController,SFSafariViewControllerDelegate {
 //            let item = items[1]
 //            item.badgeValue = "99"
 //        }
+//        let navController = self.tabBarController?.viewControllers?[2] as? UINavigationController
+//        let controller = navController?.viewControllers[0] as? GroupOrderViewController
+//        self.present(controller, animated: true, completion: nil)
+        
+//        self.navigationController?.pushViewController(controller!,animated: true)
+//        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "GroupOrderView") {
+//            controller.modalPresentationStyle = .fullScreen
+//        }
     }
     
     @IBAction func openSafari(_ sender: Any) {
-        if let url = URL(string: "https://www.google.com"){ //http://www.kebuke.com/
+        if let url = URL(string: "http://www.kebuke.com/"){ //http://www.kebuke.com/
             let safari = SFSafariViewController(url: url)
             safari.delegate = self
             present(safari, animated: true, completion: nil)

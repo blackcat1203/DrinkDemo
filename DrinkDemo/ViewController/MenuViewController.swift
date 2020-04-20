@@ -11,7 +11,7 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
     @IBOutlet weak var menuTableView: UITableView!
-    var drinkList = [DrinkList]()
+    var drinkList = [Drink]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         menuTableView.dataSource = self
         // Do any additional setup after loading the view.
         let url = Bundle.main.url(forResource: "DrinkList", withExtension: "plist")!
-        if let data = try? Data(contentsOf: url), let drinks = try? PropertyListDecoder().decode([DrinkList].self, from: data) {
+        if let data = try? Data(contentsOf: url), let drinks = try? PropertyListDecoder().decode([Drink].self, from: data) {
             drinkList = drinks
             menuTableView.reloadData()
         }
@@ -49,6 +49,18 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.priceLabel.text = String(drinkList[indexPath.row].middlePrice)
         cell.imageView?.image = UIImage(named: drinkList[indexPath.row].image)
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        if let controller = segue.destination as? OrderDrinkTableViewController {
+            if let row = menuTableView.indexPathForSelectedRow?.row{
+                controller.actionType = "add"
+                controller.drink = drinkList[row]
+            }
+        }
     }
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
