@@ -28,7 +28,10 @@ class OrderViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let data = try? Data(contentsOf: url), let drinks = try? PropertyListDecoder().decode([Drink].self, from: data) {
             drinkList = drinks
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         orderTableView.dataSource = self
         orderTableView.delegate = self
         getOrderList()

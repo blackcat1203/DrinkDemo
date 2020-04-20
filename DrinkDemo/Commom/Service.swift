@@ -73,7 +73,7 @@ class Service {
     func cudAction(endPoint:String, params: Parameters, method: HTTPMethod){
         
         AF.request(self.baseUrl + endPoint, method: method, parameters: params, encoding: JSONEncoding.default , headers: nil, interceptor: nil).response { (responseData) in
-            debugPrint(responseData)
+//            debugPrint(responseData)
             guard let data = responseData.data else {
                 self.objectCallBack?(nil, false, "")
                 return}

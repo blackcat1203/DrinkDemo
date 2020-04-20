@@ -130,10 +130,9 @@ class OrderDrinkTableViewController: UITableViewController, UIPickerViewDataSour
                         child.willMove(toParent: nil)
                         child.view.removeFromSuperview()
                         child.removeFromParent()
-                        self.navigationController?.popViewController(animated: true)
-//                        let navController = self.tabBarController?.viewControllers?[2] as? UINavigationController
-//                        let controller = navController?.viewControllers[0] as? GroupOrderViewController
-//                        self.present(controller, animated: true, completion: nil)
+                        let tabController = self.tabBarController
+                        self.navigationController?.popViewController(animated: false )
+                        tabController?.selectedIndex = 3
                     }
                 }
             }
