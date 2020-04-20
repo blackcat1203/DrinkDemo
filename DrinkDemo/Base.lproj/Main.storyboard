@@ -224,7 +224,7 @@
                                                     </segments>
                                                 </segmentedControl>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="糖度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rI-ua-CUP">
-                                                    <rect key="frame" x="20" y="12" width="35" height="20.5"/>
+                                                    <rect key="frame" x="20" y="11.5" width="35" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -597,7 +597,7 @@
                                                 <stackView opaque="NO" contentMode="left" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-Ul-Jxg">
                                                     <rect key="frame" x="20" y="11" width="374" height="100.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="left" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="kPi-iR-Sfi">
+                                                        <stackView opaque="NO" contentMode="left" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="kPi-iR-Sfi" userLabel="image Stack View">
                                                             <rect key="frame" x="0.0" y="0.5" width="100" height="100"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="38U-BF-BU0">
@@ -606,10 +606,11 @@
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="100" id="DzK-gE-GuN"/>
                                                                 <constraint firstAttribute="width" constant="100" id="vuc-mU-whh"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="H05-Lp-flX">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="H05-Lp-flX" userLabel="text Stack View">
                                                             <rect key="frame" x="110" y="2" width="264" height="97"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sOb-kt-Huw">
