@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class Service {
-    var baseUrl = "https://sheetdb.io/api/v1/raksxhgrl9pok"
+    var baseUrl = "https://sheetdb.io/api/v1/frtiim0wfb3dr"
     typealias jsonCallBack<T> = (_ countries:[T]?, _ status: Bool, _ message:String) -> Void
     typealias objectJsonCallBack<T> = (_ countries:T?, _ status: Bool, _ message:String) -> Void
     
@@ -19,6 +19,7 @@ class Service {
     
     func getGroupList(endPoint:String)  {
         AF.request(self.baseUrl + endPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { (responseData) in
+//            debugPrint(responseData)
             guard let data = responseData.data else {
                 self.callBack?(nil, false, "")
                 return}
