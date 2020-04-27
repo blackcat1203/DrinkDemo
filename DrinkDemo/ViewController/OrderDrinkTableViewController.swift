@@ -67,6 +67,7 @@ class OrderDrinkTableViewController: UITableViewController, UIPickerViewDataSour
                 //                debugPrint(self.groups)
                 if let groups = self.groups, self.groups?.count != 0 {
                     self.groupTextField.text = groups[0].name
+                    self.selectGroup = groups[0]
                     self.groupPicker.selectRow(0, inComponent: 0, animated: true)
                 }
                 self.groupPicker.reloadAllComponents()
