@@ -11,13 +11,11 @@ import Alamofire
 
 class Service {
     var baseUrl = "https://sheetdb.io/api/v1/frtiim0wfb3dr"
-    typealias jsonCallBack<T> = (_ countries:[T]?, _ status: Bool, _ message:String) -> Void
-    typealias objectJsonCallBack<T> = (_ countries:T?, _ status: Bool, _ message:String) -> Void
+    typealias jsonCallBack = (_ countries:Any?, _ status: Bool, _ message:String) -> Void
     
-    var callBack:jsonCallBack<Any>?
-    var objectCallBack:objectJsonCallBack<Any>?
+    var callBack:jsonCallBack?
     
-    func getGroupList(endPoint:String)  {
+    func getList<T:Codable>(endPoint:String, type:T.Type)  {
         AF.request(self.baseUrl + endPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { (responseData) in
 //            debugPrint(responseData)
             guard let data = responseData.data else {
@@ -27,7 +25,7 @@ class Service {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 decoder.dateDecodingStrategy = .iso8601
-                let data = try decoder.decode([Group].self, from: data)
+                let data = try decoder.decode([T].self, from: data)
                 self.callBack?(data, true,"")
             } catch {
                 self.callBack?(nil, false, error.localizedDescription)
@@ -36,25 +34,7 @@ class Service {
         }
     }
     
-    func getAllGroupCount(endPoint:String)  {
-        AF.request(self.baseUrl + endPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { (responseData) in
-            guard let data = responseData.data else {
-                self.objectCallBack?(nil, false, "")
-                return}
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                decoder.dateDecodingStrategy = .iso8601
-                let data = try decoder.decode(GetCount.self, from: data)
-                self.objectCallBack?(data, true,"")
-            } catch {
-                self.objectCallBack?(nil, false, error.localizedDescription)
-            }
-        }
-    }
-    
-    
-    func getOrderList(endPoint:String){
+    func getCount<T:Codable>(endPoint:String, type:T.Type)  {
         AF.request(self.baseUrl + endPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { (responseData) in
             guard let data = responseData.data else {
                 self.callBack?(nil, false, "")
@@ -63,7 +43,7 @@ class Service {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 decoder.dateDecodingStrategy = .iso8601
-                let data = try decoder.decode([Order].self, from: data)
+                let data = try decoder.decode(T.self, from: data)
                 self.callBack?(data, true,"")
             } catch {
                 self.callBack?(nil, false, error.localizedDescription)
@@ -71,31 +51,27 @@ class Service {
         }
     }
     
-    func cudAction(endPoint:String, params: Parameters, method: HTTPMethod){
+    func cudAction(endPoint:String, params: Parameters?, method: HTTPMethod){
         
         AF.request(self.baseUrl + endPoint, method: method, parameters: params, encoding: JSONEncoding.default , headers: nil, interceptor: nil).response { (responseData) in
 //            debugPrint(responseData)
             guard let data = responseData.data else {
-                self.objectCallBack?(nil, false, "")
+                self.callBack?(nil, false, "")
                 return}
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 decoder.dateDecodingStrategy = .iso8601
                 let data = try decoder.decode(CUDReturn.self, from: data)
-                self.objectCallBack?(data, true,"")
+                self.callBack?(data, true,"")
             } catch {
-                self.objectCallBack?(nil, false, error.localizedDescription)
+                self.callBack?(nil, false, error.localizedDescription)
             }
         }
     }
     
-    func completionHandler(callBack: @escaping jsonCallBack<Any>) {
+    func completionHandler(callBack: @escaping jsonCallBack) {
         self.callBack = callBack
-    }
-    
-    func completionHandlerForObject(callBack: @escaping objectJsonCallBack<Any>) {
-        self.objectCallBack = callBack
     }
         
 }

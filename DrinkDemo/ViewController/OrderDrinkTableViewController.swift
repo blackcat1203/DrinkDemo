@@ -59,7 +59,7 @@ class OrderDrinkTableViewController: UITableViewController, UIPickerViewDataSour
         child.didMove(toParent: self)
         
         let service = Service()
-        service.getGroupList(endPoint: "/search?sheet=group&status=1")
+        service.getList(endPoint: "/search?sheet=group&status=1", type: Group.self)
         service.completionHandler {(groups, status, message) in
             if status {
 //                guard let _groups = groups else {return}
@@ -127,7 +127,7 @@ class OrderDrinkTableViewController: UITableViewController, UIPickerViewDataSour
                     let dict = try? JSONSerialization.jsonObject(with: createEncode!, options: []) as? [String: Any]
                     let service = Service()
                     service.cudAction(endPoint: "?sheet=order", params: dict!, method: .post)
-                    service.completionHandlerForObject{(data, status, message) in
+                    service.completionHandler{(data, status, message) in
                         child.willMove(toParent: nil)
                         child.view.removeFromSuperview()
                         child.removeFromParent()
@@ -143,6 +143,9 @@ class OrderDrinkTableViewController: UITableViewController, UIPickerViewDataSour
         }
     }
     
+    @IBAction func tapAction(_ sender: Any) {
+        view.endEditing(true)
+    }
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
@@ -173,13 +176,6 @@ class OrderDrinkTableViewController: UITableViewController, UIPickerViewDataSour
 //        debugPrint(selectGroup)
     }
     
-    @objc func dismissKeyBoard() {
-        self.view.endEditing(true)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

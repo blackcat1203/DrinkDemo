@@ -36,12 +36,12 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         child.didMove(toParent: self)
         
         let service = Service()
-        service.getGroupList(endPoint: "/search?sheet=group&status=1")
-        service.completionHandler {(groups, status, message) in
+        service.getList(endPoint: "/search?sheet=group&status=1", type: Group.self)
+        service.completionHandler {(datas, status, message) in
             if status {
-                guard let _groups = groups else {return}
-                self.groups = _groups as! [Group]
-//                debugPrint(self.groups)
+                guard let datas = datas else {return}
+                self.groups = datas as! [Group]
+                debugPrint(self.groups)
                 self.groupTableView.reloadData()
             }
             

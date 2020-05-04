@@ -19,7 +19,6 @@ class OrderViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         if let groupName = groupName {
             navigationItem.title = "\(groupName) 的訂單"
         }
@@ -46,7 +45,7 @@ class OrderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let service = Service()
         if let groupId = groupId {
-            service.getOrderList(endPoint: "/search?sheet=order&groupId=\(groupId)")
+            service.getList(endPoint: "/search?sheet=order&groupId=\(groupId)", type: Order.self)
             service.completionHandler {(data, status, message) in
                 if status{
                     self.orders = data as? [Order]
@@ -93,4 +92,28 @@ class OrderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            
+        let child = SpinnerViewController()
+        addChild(child)
+        child.view.frame = view.frame
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+        let service = Service()
+        service.cudAction(endPoint: "/orderId/\(orders?[indexPath.row].orderId ?? "")?sheet=order", params: nil, method: .delete)
+        service.completionHandler { (data, status, message) in
+            if status{
+                self.orders?.remove(at: indexPath.row)
+                self.orderTableView.deleteRows(at: [indexPath], with: .automatic)
+            }else{
+                debugPrint(message)
+            }
+            child.willMove(toParent: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+        }
+        
+    }
+        
 }

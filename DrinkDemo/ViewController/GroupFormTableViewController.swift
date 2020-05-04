@@ -46,7 +46,7 @@ class GroupFormTableViewController: UITableViewController {
                     let dict = try? JSONSerialization.jsonObject(with: createGroupEncode!, options: []) as? [String: Any]
                     let service = Service()
                     service.cudAction(endPoint: "/groupId/\(group!.groupId)?sheet=group", params: dict!, method: .put)
-                    service.completionHandlerForObject {(data, status, message) in
+                    service.completionHandler{(data, status, message) in
                         if status {
                             child.willMove(toParent: nil)
                             child.view.removeFromSuperview()
@@ -58,8 +58,8 @@ class GroupFormTableViewController: UITableViewController {
                     }
                 default:
                     let service = Service()
-                    service.getAllGroupCount(endPoint: "/count?sheet=group")
-                    service.completionHandlerForObject{(data, status, message) in
+                    service.getCount(endPoint: "/count?sheet=group", type: GetCount.self)
+                    service.completionHandler{(data, status, message) in
                         if status {
                             guard let _data = data else {return}
                             let getCount = _data as! GetCount
@@ -71,7 +71,7 @@ class GroupFormTableViewController: UITableViewController {
                             let createGroupEncode = try? encoder.encode(createGroup)
                             let dict = try? JSONSerialization.jsonObject(with: createGroupEncode!, options: []) as? [String: Any]
                             service.cudAction(endPoint: "?sheet=group", params: dict!, method: .post)
-                            service.completionHandlerForObject{(data, status, message) in
+                            service.completionHandler{(data, status, message) in
                                 child.willMove(toParent: nil)
                                 child.view.removeFromSuperview()
                                 child.removeFromParent()

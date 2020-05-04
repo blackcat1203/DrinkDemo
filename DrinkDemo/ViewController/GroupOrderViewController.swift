@@ -17,6 +17,7 @@ class GroupOrderViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -35,12 +36,12 @@ class GroupOrderViewController: UIViewController, UITableViewDataSource, UITable
         child.didMove(toParent: self)
         
         let service = Service()
-        service.getGroupList(endPoint: "/search?sheet=group&status=1")
+        service.getList(endPoint: "/search?sheet=group&status=1", type: Group.self)
         service.completionHandler {(groups, status, message) in
             if status {
                 self.groups = groups as? [Group]
                 
-                service.getOrderList(endPoint: "?sheet=order&sort_by=groupId&sort_order=ASC")
+                service.getList(endPoint: "?sheet=order&sort_by=groupId&sort_order=ASC", type: Order.self)
                 service.completionHandler {(data, status, message) in
                     if status{
                         self.orders = data as? [Order]
@@ -62,7 +63,6 @@ class GroupOrderViewController: UIViewController, UITableViewDataSource, UITable
             child.removeFromParent()
         }
     }
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groupOrderList.count
@@ -79,7 +79,6 @@ class GroupOrderViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
     }
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
